@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react'
 import { Context } from '../Context'
 
 
-function InputBar (props) {
-  const [textState, setTextState] = useState(props.placeholderText)
+function InputBar ({id, placeholderText}) {
+  const [textState, setTextState] = useState(placeholderText)
   const {updateVideo} = useContext(Context)
 
   function handleChange(e) {
@@ -11,7 +11,7 @@ function InputBar (props) {
   }
 
   function onSubmit(e) {
-    updateVideo(textState)
+    updateVideo(textState, id)
   }
 
   return(
