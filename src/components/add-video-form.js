@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import {Context} from '../Context'
-import { isWebUri } from 'valid-url'
 import styled from 'styled-components'
+import ReactPlayer from 'react-player'
 
 
 function AddVideoForm() {
@@ -19,10 +19,12 @@ function AddVideoForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (!isWebUri(textState)) {
-          setIsWrongUrl(true)
-        }
-    else addVideo(textState)
+    if (ReactPlayer.canPlay(textState)) {
+      addVideo(textState)
+    }
+    else {
+      setIsWrongUrl(true)
+    }
   }
 
   return (
