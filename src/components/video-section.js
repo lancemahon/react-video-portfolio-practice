@@ -6,14 +6,6 @@ import AddVideoForm from './add-video-form'
 function VideoSection () {
   const {wantsToAdd, state, addVideo} = useContext(Context)
 
-  // function wantToAdd () {
-  //   return (
-  //     state.wantsToAdd ?
-  //     <addVideoForm />
-  //     : <button onClick={() => wantsToAdd()}>Add a video</button>
-  //   )
-  // }
-
   const videoBoxes = state.videos.map(v =>
     <VideoBox
       url={v.url}
@@ -23,6 +15,7 @@ function VideoSection () {
 
   return (
     <div>
+      <button onClick={() => console.log('state videos ' + state.videos)}>Click to show state</button>
       {state.wantsToAdd ?
       <AddVideoForm />
       : <button onClick={() => wantsToAdd()}>Add a video</button>}

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
 import {Context} from '../Context'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import ReactPlayer from 'react-player'
+import StyledP from './styled-p-tag'
 
 
 function AddVideoForm() {
@@ -12,10 +13,6 @@ function AddVideoForm() {
   function handleChange(e) {
     setTextState(e.target.value)
   }
-
-  const StyledP = styled.p`
-    display: ${prop => prop.active ? 'initial' : 'none'};
-  `
 
   function handleSubmit(e) {
     e.preventDefault()

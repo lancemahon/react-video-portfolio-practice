@@ -2,6 +2,7 @@ import React from 'react'
 
 import Video from './video'
 import InputBar from './input-bar'
+import DeleteButton from './delete-button'
 
 function VideoBox({url, id}) {
   return(
@@ -12,6 +13,9 @@ function VideoBox({url, id}) {
       />
       <Video
         url={url}
+      />
+      <DeleteButton
+      id={id}
       />
     </div>
   )
