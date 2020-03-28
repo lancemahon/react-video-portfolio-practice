@@ -9,22 +9,25 @@ const Box = styled.section`
   margin-top: 25px;
   margin-bottom: 25px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: ${prop => prop.side == 'left' ? '1fr 200px' : '200px 1fr'};
+  grid-template-rows: 1fr;
 `
 
 const VideoPositioner = styled.section`
-  grid-column: ${prop => prop.side == 'left' ? '1' : '2'}
+  grid-column: ${prop => prop.side == 'left' ? '1' : '2'};
 `
 
 const InputBarPositioner = styled.section`
-  grid-column: ${prop => prop.side == 'left' ? '2' : '1'}
+  grid-column: ${prop => prop.side == 'left' ? '2' : '1'};
+  grid-row: 1;
+  align-self: center;
 `
 
 function VideoBox({side, url, id}) {
   console.log('Side for video box ' + id + ' is ' + side)
   return(
     <div>
-      <Box>
+      <Box side={side}>
         <InputBarPositioner side={side}>
           <InputBar
             placeholderText='Enter video url to update'
