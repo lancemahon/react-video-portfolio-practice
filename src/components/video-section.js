@@ -14,8 +14,19 @@ padding: 40px;
 function VideoSection () {
   const {state, addVideo} = useContext(Context)
 
-  const videoBoxes = state.videos.map(v =>
+  // this will be used to position individual video boxes using CSS grid
+  function chooseSide (index) {
+    if (index % 2 == 0) {
+      return 'left'
+    }
+    else {
+      return 'right'
+    }
+  }
+
+  const videoBoxes = state.videos.map((v, i) =>
     <VideoBox
+      side={chooseSide(i)}
       url={v.url}
       id={v.id}
     />

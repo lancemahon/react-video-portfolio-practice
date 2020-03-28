@@ -8,19 +8,34 @@ import styled from 'styled-components'
 const Box = styled.section`
   margin-top: 25px;
   margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `
 
-function VideoBox({url, id}) {
+const VideoPositioner = styled.section`
+  grid-column: ${prop => prop.side == 'left' ? '1' : '2'}
+`
+
+const InputBarPositioner = styled.section`
+  grid-column: ${prop => prop.side == 'left' ? '2' : '1'}
+`
+
+function VideoBox({side, url, id}) {
+  console.log('Side for video box ' + id + ' is ' + side)
   return(
     <div>
       <Box>
-        <InputBar
-          placeholderText='Enter video url to update'
-          id={id}
-        />
-        <Video
-          url={url}
-        />
+        <InputBarPositioner side={side}>
+          <InputBar
+            placeholderText='Enter video url to update'
+            id={id}
+          />
+        </InputBarPositioner>
+        <VideoPositioner side={side}>
+          <Video
+            url={url}
+          />
+        </VideoPositioner>
         <DeleteButton
         id={id}
         />

@@ -8,7 +8,8 @@ function ContextProvider(props) {
     {
       videos: [{
       url: 'https://www.youtube.com/watch?v=zTitoHKsyJg',
-      id: 1
+      id: 1,
+
     }],
     wantsToAdd: false
   }
