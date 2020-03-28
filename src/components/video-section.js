@@ -1,8 +1,9 @@
 import React, {useContext} from 'react'
+import styled from 'styled-components'
+
 import {Context} from '../Context'
 import VideoBox from './video-box'
 import AddVideoFormContainer from './add-video-form-container'
-import styled from 'styled-components'
 
 const Wrapper = styled.section`
 border: 2px solid;
