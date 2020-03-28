@@ -6,8 +6,6 @@ function reducer(state, action) {
         wantsToAdd: true
       }
     case 'add-video':
-      console.log('action.url: ' + action.url)
-      console.log('action.id: ' + action.id)
       return {
         wantsToAdd: false,
         videos: [...state.videos, { url: action.url, id: action.id}],

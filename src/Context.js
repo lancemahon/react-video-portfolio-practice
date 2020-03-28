@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from "react"
+import React, { useReducer } from "react"
 import reducer from './reducer'
 
 const Context = React.createContext()
@@ -17,7 +17,6 @@ function ContextProvider(props) {
 
   function wantsToAdd () {
     dispatch({type: 'wants-to-add'})
-    console.log(state.wantsToAdd)
   }
 
   function updateVideo(newUrl, newId) {
@@ -34,15 +33,11 @@ function ContextProvider(props) {
     // That way we get unique id's every time
     let max_id = state.videos.reduce(maxReducer, 0).id
     const newId = max_id + 1
-    console.log('url: ' + newUrl)
-    console.log('id: ' + newId)
     dispatch({ type: 'add-video', url: newUrl, id: newId})
-    setTimeout(() => console.log(state.videos), 10000)
   }
 
   function deleteVideo(targetId) {
     dispatch({type: 'delete-video', id: targetId})
-    console.log('deleteVideo called in Context, with targetId: ' + targetId)
   }
 
   return(
