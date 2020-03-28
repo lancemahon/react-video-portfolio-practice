@@ -2,9 +2,17 @@ import React, {useState, useContext} from 'react'
 import {Context} from '../Context'
 import VideoBox from './video-box'
 import AddVideoForm from './add-video-form'
+import styled from 'styled-components'
+
+const Wrapper = styled.section`
+border: 2px solid;
+border-radius: 30px;
+border-color: #34baeb;
+padding: 40px;
+`
 
 function VideoSection () {
-  const {wantsToAdd, state, addVideo} = useContext(Context)
+  const {state, addVideo} = useContext(Context)
 
   const videoBoxes = state.videos.map(v =>
     <VideoBox
@@ -14,13 +22,10 @@ function VideoSection () {
     )
 
   return (
-    <div>
-      <button onClick={() => console.log('state videos ' + state.videos)}>Click to show state</button>
-      {state.wantsToAdd ?
+    <Wrapper>
       <AddVideoForm />
-      : <button onClick={() => wantsToAdd()}>Add a video</button>}
       {videoBoxes}
-    </div>
+    </Wrapper>
   )
 }
 
