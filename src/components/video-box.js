@@ -30,15 +30,15 @@ function VideoBox({side, url, id}) {
             placeholderText='Enter video url to update'
             id={id}
           />
+          <DeleteButton
+          id={id}
+          />
         </InputBarPositioner>
         <VideoPositioner side={side}>
           <Video
             url={url}
           />
         </VideoPositioner>
-        <DeleteButton
-        id={id}
-        />
       </Box>
     </div>
   )

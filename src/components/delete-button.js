@@ -7,7 +7,7 @@ function DeleteButton ({id}) {
   return (
     <button onClick={() => {
       console.log('Clicked delete button, id is: ' + id)
-      deleteVideo(id)}}>Delete</button>
+      deleteVideo(id)}}>Delete this video</button>
   )
 }
 
