@@ -3,15 +3,18 @@ import {Context} from '../Context'
 // import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 import StyledP from './styled-p-tag'
+import Button from 'react-bootstrap/Button'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import styled from 'styled-components'
+import { Form } from 'react-bootstrap'
 
 const FormWrapper = styled.section`
   background: #383c44;
   min-height: 10vh;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 150px 1fr 150px;
 `
 const FormInnards = styled.section`
   border-radius: 10px;
@@ -46,11 +49,23 @@ function AddVideoForm() {
           <div>
             <StyledP active={isWrongUrl}>Please enter a valid url</StyledP>
             <form onSubmit={handleSubmit}>
-              <input type='text' placeholder='Video url' onChange={handleChange} />
-              <input type='submit' value='Submit' />
+              <Form.Group controlId='formAddVideo'>
+                <Form.Row>
+                  <Col sm={10}>
+                    <Form.Control type='input' placeholder='Video url' onChange={handleChange} />
+                  </Col>
+                    {/*<input type='text' placeholder='Video url' onChange={handleChange} />*/}
+                    <Col sm={1}>
+                      <Button variant='primary' type='submit'>
+                        Submit
+                      </Button>
+                    </Col>
+                  </Form.Row>
+                  {/*<input type='submit' value='Submit' />*/}
+              </Form.Group>
             </form>
           </div> :
-          <button onClick={() => wantsToAdd()}>Add a video</button>}
+          <Button variant='primary' onClick={() => wantsToAdd()}>Add a video</Button>}
         </FormInnards>
       </FormWrapper>
     </div>

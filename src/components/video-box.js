@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Video from './video'
-import InputBar from './input-bar'
-import DeleteButton from './delete-button'
+import UpdateSection from './update-section'
+import Button from 'react-bootstrap/Button'
 import styled from 'styled-components'
 
 const Box = styled.section`
@@ -11,32 +11,29 @@ const Box = styled.section`
   display: grid;
   grid-template-columns: ${prop => prop.side == 'left' ? '1fr 200px' : '200px 1fr'};
   grid-template-rows: 1fr;
+  grid-column-gap: 40px;
 `
 
 const VideoPositioner = styled.section`
   grid-column: ${prop => prop.side == 'left' ? '1' : '2'};
 `
 
-const InputBarPositioner = styled.section`
+const UpdatePositioner = styled.section`
   grid-column: ${prop => prop.side == 'left' ? '2' : '1'};
   grid-row: 1;
   align-self: center;
+  justify-self: center;
 `
 
 function VideoBox({side, url, id}) {
-  console.log('Side for video box ' + id + ' is ' + side)
   return(
     <div>
       <Box side={side}>
-        <InputBarPositioner side={side}>
-          <InputBar
-            placeholderText='Enter video url to update'
+        <UpdatePositioner side={side}>
+          <UpdateSection 
             id={id}
           />
-          <DeleteButton
-          id={id}
-          />
-        </InputBarPositioner>
+        </UpdatePositioner>
         <VideoPositioner side={side}>
           <Video
             url={url}
