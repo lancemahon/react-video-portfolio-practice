@@ -3,6 +3,7 @@ import './App.css';
 import VideoSection from './components/video-section'
 import {ContextProvider} from './Context'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import videoFile from './videoplayback.mp4'
 
 import ReelBox from './components/reel-box'
 
@@ -16,7 +17,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <ReelBox  
-            url='https://www.w3schools.com/tags/movie.mp4' 
+            url={videoFile}
           />
           <VideoSection />
         </header>
