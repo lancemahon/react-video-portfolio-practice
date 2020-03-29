@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
-import VideoSection from './components/video-section'
-import {ContextProvider} from './Context'
+// import VideoSection from './components/video-section'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import videoFile from './videoplayback.mp4'
 
+import './App.css'
+import {ContextProvider} from './Context'
+import videoFile from './videoplayback.mp4'
 import ReelBox from './components/reel-box'
+import VideoGridContainer from './components/video-grid-container'
 
 // Have a video component for displaying videos, will send the url in as a prop
 // Have an input_bar component for writing text into and submitting.
@@ -17,9 +18,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           <ReelBox  
-            url={videoFile}
-          />
-          <VideoSection />
+              url={videoFile}
+            />
+          <VideoGridContainer />
         </header>
       </div>
     </ContextProvider>
