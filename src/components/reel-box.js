@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import styled from 'styled-components'
 
-import classes from './reel.module.css'
-
 const StyledVideo = styled.video`
     minWidth: 30%%;
     minHeight: 30%;
