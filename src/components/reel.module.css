@@ -1,15 +1,11 @@
-.Container {
+.Banner {
+    background-image: linear-gradient(rgba(0,0,0,0.48),rgba(0,0,0,0.48));
+    height: 100vh;
+    width: 100vw;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
     position: relative;
-    min-height: 300px;
-    max-height: 800px;
-    min-width: 1500px;
-    overflow: hidden;
-    margin-bottom: 20px;
+    text-align: center;
 }
-
-/* Style the video: 100% width and height to cover the entire window */
-.Reel {
-    width: 100%;
-    height: 100%;
-  }
-  
