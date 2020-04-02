@@ -27,13 +27,9 @@ const GridItem = styled.div`
 function VideoGrid () {
     const {state} = useContext(Context)
 
-    function handleHover (e) {
-
-    }
-
     const grid = state.videos.map(v => {
         return (
-            <GridItem>
+            <GridItem key={v.id}>
                 <Post
                     key={v.id}
                     video={v}
