@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+
+import {Context} from '../Context'
 
 const PostImage = styled.div`
     position: relative;
@@ -33,15 +35,22 @@ const PostText = styled.div`
 
 function Post ({video}) {
     const [isHovering, setIsHovering] = useState(false)
+    const {watchVideo} = useContext(Context)
 
     function toggleHover() {
         setIsHovering(prev => !prev)
     }
 
+    function clickVideo(e) {
+        e.preventDefault()
+        watchVideo(video.url)
+    }
+
     return (
         <a href={video.url} 
             onMouseEnter={toggleHover}
-            onMouseLeave={toggleHover}>
+            onMouseLeave={toggleHover}
+            onClick={clickVideo}>
             <PostImage
                 style={{ backgroundImage: 'url(' + require('../videoImageStandIn.jpg') + ')' }}>
             </PostImage>

@@ -8,6 +8,7 @@ import videoFile from './videoplayback.mp4'
 import ReelBox from './components/reel-box'
 import VideoGridContainer from './components/video-grid-container'
 import ContactMeForm from './components/contact-me-form'
+import PopUpPlayer from './components/pop-up-player'
 
 // Have a video component for displaying videos, will send the url in as a prop
 // Have an input_bar component for writing text into and submitting.
@@ -23,6 +24,7 @@ function App() {
             />
           <VideoGridContainer />
           <ContactMeForm />
+          <PopUpPlayer />
         </header>
       </div>
     </ContextProvider>

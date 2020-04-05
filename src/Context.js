@@ -7,7 +7,7 @@ function ContextProvider(props) {
   const [state, dispatch] = useReducer(reducer,
     {
       videos: [{
-      url: 'https://www.youtube.com/watch?v=zTitoHKsyJg',
+      url: 'https://vimeo.com/361935210',
       id: 1,
 
     },
@@ -56,7 +56,11 @@ function ContextProvider(props) {
       id: 10,
 
     }],
-    wantsToAdd: false
+    wantsToAdd: false,
+    watching: {
+      isWatching: false,
+      videoBeingWatched: ''
+    }
   }
 )
 
@@ -85,12 +89,21 @@ function ContextProvider(props) {
     dispatch({type: 'delete-video', id: targetId})
   }
 
+  function watchVideo(videoUrl) {
+    dispatch({type: 'watch-video', videoUrl: videoUrl})
+  }
+
+  function stopWatching() {
+    dispatch({type: 'stop-watching'})
+  }
+
   return(
     <Context.Provider value={{
       wantsToAdd,
       updateVideo,
       addVideo,
       deleteVideo,
+      watchVideo,
       state
     }}>
       {props.children}

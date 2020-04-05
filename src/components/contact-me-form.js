@@ -17,7 +17,6 @@ function ContactMeForm () {
     const email = document.getElementById('email').value
     const message = document.getElementById('message').value
 
-    console.log('assigned name, email and message')
     axios({
         method: "POST", 
         url:"http://localhost:3001/send", 

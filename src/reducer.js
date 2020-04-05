@@ -22,6 +22,22 @@ function reducer(state, action) {
         ...state,
         videos: state.videos.filter(v => v.id !== action.id)
       }
+    case 'watch-video':
+      return {
+        ...state,
+        watching: {
+          isWatching: true,
+          videoBeingWatched: action.videoUrl
+        }
+      }
+    case 'stop-watching':
+      return {
+        ...state,
+        watching: {
+          isWatching: false,
+          videoBeingWatched: ''
+        }
+      }
     default:
       return state
   }

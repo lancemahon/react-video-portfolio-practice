@@ -41,11 +41,9 @@ function ReelBox ({url}) {
 
     useEffect(() => {
         const handleScroll = () => { 
-            // console.log('scroll height: ' + scrollHeight)
             const newScrollHeight = Math.ceil(window.scrollY / 50) *50;
             if (scrollHeight !== newScrollHeight){
                 setScrollHeight(newScrollHeight)
-                console.log('scroll height: ' + scrollHeight)
             }
         }
         window.addEventListener('scroll', handleScroll)
